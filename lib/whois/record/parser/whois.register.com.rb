@@ -79,9 +79,13 @@ module Whois
 
         property_supported :registrar do
           unless rcomexpress?
+            name = content_for_scanner[/Registrar Name.+:(.+)\n/, 1]
+            name.strip! unless name.nil?
+            url = content_for_scanner[/Registrar Homepage:(.+)\n/, 1]
+            url.strip! unless url.nil?
             Record::Registrar.new(
-              :name => content_for_scanner[/Registrar Name.+:(.+)\n/, 1].strip,
-              :url => content_for_scanner[/Registrar Homepage:(.+)\n/, 1].strip
+              :name => name,
+              :url => url
             )
           end
         end
