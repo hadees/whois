@@ -1,0 +1,78 @@
+#status
+  should: %s raise_error(Whois::PropertyNotSupported)
+
+#available?
+  should: %s == false
+
+#registered?
+  should: %s == true
+
+#created_on
+	should: %s (time)
+	should: %s == Time.parse("11 Jan 2007 16:53:14")
+
+#expires_on
+	should: %s (time)
+	should: %s == Time.parse("11 Jan 2013 16:53:00")
+
+#registrant_contacts
+  should: %s (array)
+  should: %s have(1).items
+  should: %s[0] (contact)
+  should: %s[0].type         == Whois::Record::Contact::TYPE_REGISTRANT
+  should: %s[0].name         == "Joshua Baer"
+  should: %s[0].organization == "OtherInbox"
+  should: %s[0].address      == "PMB 520, 3267 Bee Cave #107"
+  should: %s[0].city         == "Austin"
+  should: %s[0].zip          == "78746"
+  should: %s[0].state        == "TX"
+  should: %s[0].country      == "US"
+  should: %s[0].phone        == nil
+  should: %s[0].fax          == nil
+  should: %s[0].email        == nil
+
+#admin_contacts
+  should: %s (array)
+  should: %s have(1).items
+  should: %s[0] (contact)
+  should: %s[0].type         == Whois::Record::Contact::TYPE_ADMIN
+  should: %s[0].name         == "Joshua Baer"
+  should: %s[0].organization == nil
+  should: %s[0].address      == "PMB 520, 3267 Bee Cave #107"
+  should: %s[0].city         == "Austin"
+  should: %s[0].zip          == "78746"
+  should: %s[0].state        == "TX"
+  should: %s[0].country      == "US"
+  should: %s[0].phone        == "+1.5126921881"
+  should: %s[0].fax          == nil
+  should: %s[0].email        == "dns@joshuabaer.com"
+
+#technical_contacts
+  should: %s (array)
+  should: %s have(1).items
+  should: %s[0] (contact)
+  should: %s[0].type         == Whois::Record::Contact::TYPE_TECHNICAL
+  should: %s[0].name         == "Joshua Baer"
+  should: %s[0].organization == nil
+  should: %s[0].address      == "PMB 520, 3267 Bee Cave #107"
+  should: %s[0].city         == "Austin"
+  should: %s[0].zip          == "78746"
+  should: %s[0].state        == "TX"
+  should: %s[0].country      == "US"
+  should: %s[0].phone        == "+1.5126921881"
+  should: %s[0].fax          == nil
+  should: %s[0].email        == "dns@joshuabaer.com"
+
+#nameservers
+  should: %s (array)
+  should: %s have(5).items
+  should: %s[0] (nameserver)
+  should: %s[0].name == "a.ns.zerigo.net"
+  should: %s[1] (nameserver)
+  should: %s[1].name == "b.ns.zerigo.net"
+  should: %s[2] (nameserver)
+  should: %s[2].name == "c.ns.zerigo.net"
+  should: %s[3] (nameserver)
+  should: %s[3].name == "d.ns.zerigo.net"
+  should: %s[4] (nameserver)
+  should: %s[4].name == "e.ns.zerigo.net"
