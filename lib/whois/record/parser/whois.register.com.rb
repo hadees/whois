@@ -23,8 +23,7 @@ module Whois
       # @see Whois::Record::Parser::Example
       #   The Example parser for the list of all available methods.
       #
-      # @author Simone Carletti
-      # @author Tom Nicholls <tom.nicholls@oii.ox.ac.uk>
+      # @author Evan Alter
       # @since  2.1.0
       class WhoisRegisterCom < Base
 
