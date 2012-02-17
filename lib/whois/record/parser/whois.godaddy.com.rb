@@ -30,7 +30,7 @@ module Whois
 
         property_not_supported :status
 
-        # The server seems to provide only linesrmation for registered domains
+        # The server is contacted only in case of a registered domain.
         property_supported :available? do
           false
         end
@@ -61,7 +61,8 @@ module Whois
 
         property_supported :registrar do
           Record::Registrar.new(
-            :name => content_for_scanner[/Registered through: (.+)\n/, 1]
+            :name => content_for_scanner[/Registered through: (.+)\n/, 1],
+            :url => "http://www.godaddy.com/"
           )
         end
 

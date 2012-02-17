@@ -3,7 +3,15 @@
 
 ## master
 
+* SERVER: .KP TLD no longer provides public WHOIS interface (GH-52).
+
+* NEW: Added full whois.dreamhost.com parser.
+
 * FIXED: whois.nic.gl parser must support `Delegate' status.
+
+* FIXED: whois.godaddy.com partially changed response format (GH-148).
+
+* FIXED: whois.registry.qa parser crashes when the response doesn't contain nameserver IPs.
 
 
 ## Release 2.3.0
